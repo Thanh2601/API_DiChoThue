@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_DiChoThueModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SanPham_Chon">
+    <Key>
+      <PropertyRef Name="MaKH" />
+      <PropertyRef Name="MaSP" />
+      <PropertyRef Name="MaNCC" />
+    </Key>
+    <Property Name="MaKH" Type="Int32" Nullable="false" />
+    <Property Name="MaSP" Type="Int32" Nullable="false" />
+    <Property Name="MaNCC" Type="Int32" Nullable="false" />
+    <Property Name="ThoiGianChon" Type="DateTime" Precision="3" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="SanPham_ChonEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SanPham_Chon" EntityType="Self.SanPham_Chon" />
+  </EntityContainer>
+</Schema>

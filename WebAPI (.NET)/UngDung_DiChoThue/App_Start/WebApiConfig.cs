@@ -12,6 +12,8 @@ namespace UngDung_DiChoThue
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            config.EnableCors();
+
 
             // Web API routes
             config.MapHttpAttributeRoutes();

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PhanHoiModelStoreContainer" CdmEntityContainer="PhanHoiEntities">
+    <EntitySetMapping Name="phan_hoi_khach_hang">
+      <EntityTypeMapping TypeName="PhanHoiModel.phan_hoi_khach_hang">
+        <MappingFragment StoreEntitySet="phan_hoi_khach_hang">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="phan_hoi" ColumnName="phan_hoi" />
+          <ScalarProperty Name="tenkh" ColumnName="tenkh" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="thoi_gian" ColumnName="thoi_gian" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

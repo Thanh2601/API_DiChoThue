@@ -45,16 +45,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -157,19 +170,113 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangsController.cs" />
     <Compile Include="Controllers\LoaiSanPhamController.cs" />
     <Compile Include="Controllers\MatHangThietYeuController.cs" />
     <Compile Include="Controllers\NhaCungCapController.cs" />
     <Compile Include="Controllers\NhuCauThucPhamCungKyController.cs" />
+    <Compile Include="Controllers\phan_hoi_khach_hangController.cs" />
     <Compile Include="Controllers\QuanLyTKController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\SanPhamsController.cs" />
+    <Compile Include="Controllers\SanPham_ChonController.cs" />
+    <Compile Include="Controllers\TaiKhoansController.cs" />
     <Compile Include="Controllers\ThuNhapDVVCController.cs" />
     <Compile Include="Controllers\ThuNhapNCCController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Model\TaiKhoan.cs" />
+    <Compile Include="Model\KhachHang.cs">
+      <DependentUpon>KhachHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KhachHangModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KhachHangModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KhachHangModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KhachHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KhachHangModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KhachHangModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PhanHoiModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhanHoiModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PhanHoiModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhanHoiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PhanHoiModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhanHoiModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\phan_hoi_khach_hang.cs">
+      <DependentUpon>PhanHoiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SanPham.cs">
+      <DependentUpon>SanPhamModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SanPhamChonModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPhamChonModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SanPhamChonModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPhamChonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SanPhamChonModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPhamChonModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SanPhamModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPhamModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SanPhamModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPhamModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SanPhamModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPhamModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SanPham_Chon.cs">
+      <DependentUpon>SanPhamChonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TaiKhoan.cs">
+      <DependentUpon>TaiKhoanDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TaiKhoanDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaiKhoanDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TaiKhoanDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaiKhoanDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TaiKhoanDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaiKhoanDataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +288,56 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Model\KhachHangModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KhachHangModel.edmx</DependentUpon>
+      <LastGenOutput>KhachHangModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\KhachHangModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KhachHangModel.edmx</DependentUpon>
+      <LastGenOutput>KhachHangModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\PhanHoiModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PhanHoiModel.edmx</DependentUpon>
+      <LastGenOutput>PhanHoiModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\PhanHoiModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PhanHoiModel.edmx</DependentUpon>
+      <LastGenOutput>PhanHoiModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\SanPhamChonModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SanPhamChonModel.edmx</DependentUpon>
+      <LastGenOutput>SanPhamChonModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\SanPhamChonModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SanPhamChonModel.edmx</DependentUpon>
+      <LastGenOutput>SanPhamChonModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\SanPhamModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SanPhamModel.edmx</DependentUpon>
+      <LastGenOutput>SanPhamModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\SanPhamModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SanPhamModel.edmx</DependentUpon>
+      <LastGenOutput>SanPhamModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\TaiKhoanDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TaiKhoanDataModel.Context.cs</LastGenOutput>
+      <DependentUpon>TaiKhoanDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\TaiKhoanDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TaiKhoanDataModel.edmx</DependentUpon>
+      <LastGenOutput>TaiKhoanDataModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -202,6 +359,41 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Model\TaiKhoanDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TaiKhoanDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\TaiKhoanDataModel.edmx.diagram">
+      <DependentUpon>TaiKhoanDataModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Model\SanPhamModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SanPhamModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\SanPhamModel.edmx.diagram">
+      <DependentUpon>SanPhamModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Model\SanPhamChonModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SanPhamChonModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\SanPhamChonModel.edmx.diagram">
+      <DependentUpon>SanPhamChonModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Model\KhachHangModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KhachHangModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\KhachHangModel.edmx.diagram">
+      <DependentUpon>KhachHangModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Model\PhanHoiModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PhanHoiModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\PhanHoiModel.edmx.diagram">
+      <DependentUpon>PhanHoiModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -255,6 +447,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

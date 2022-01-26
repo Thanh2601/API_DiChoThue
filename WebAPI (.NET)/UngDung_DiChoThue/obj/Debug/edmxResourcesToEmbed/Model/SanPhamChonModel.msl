@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QL_DiChoThueModelStoreContainer" CdmEntityContainer="SanPham_ChonEntities">
+    <EntitySetMapping Name="SanPham_Chon">
+      <EntityTypeMapping TypeName="QL_DiChoThueModel.SanPham_Chon">
+        <MappingFragment StoreEntitySet="SanPham_Chon">
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+          <ScalarProperty Name="ThoiGianChon" ColumnName="ThoiGianChon" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
